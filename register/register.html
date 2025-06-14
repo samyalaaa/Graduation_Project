@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Style Calling -->
+    <link rel="stylesheet" href="../login/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Register -->
+    <section class="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="images">
+                        <div class="img1">
+                            <img src="../images/Ellipse 34.png" alt="big glass">
+                        </div>
+                        <div class="img12">
+                            <img src="../images/Frame 6image.png" alt="image inside glass">
+                        </div>
+                        <div class="polygon">
+                            <img src="../images/Polygon 3.png" alt="Polygon">
+                        </div>
+                        <div class="ellipse">
+                            <img src="../images/Ellipse 32.png" alt="Ellipse1">
+                        </div>
+                        <div class="star">
+                            <img src="../images/Star 1.png" alt="star">
+                        </div>
+                        <div class="small-circle">
+                            <img src="../images/Ellipse 27.png" alt="Ellipse2">
+                        </div>
+                        <div class="large-circle">
+                            <img src="../images/Ellipse 28.png" alt="Ellipse3">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="login-container">
+                        <div class="login-headerr">
+                            <h1>Register</h1>
+                        </div>
+                        <form id="register">
+                            <div class="input-group">
+                                <input type="text" placeholder="User name" id="userName" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" placeholder="Email" id="email" required>
+                            </div>
+                            <div class="input-group">
+                                <!-- <label for="Password"></label> -->
+                                <input type="password" placeholder="Password" id="Password" required>
+                            </div>
+                            <div class="input-group">
+                                <!-- <label for="Confirm"></label> -->
+                                <input type="password" placeholder="Confirm Password" id="Confirm" required>
+                            </div>
+                            <h3 class="register-btn" onclick="Register()">Register</h3>
+                            <p>Alreay have an account? <a href="../Login/Login.html">Login</a></p>
+                        </form>
+
+                        <div class="divider">or</div>
+
+                        <button class="google-btn">
+                            <i class="fa-brands fa-google" id="google"></i>
+                            Continue With Google
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Calling -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="main.js"></script>
+</body>
+</html>

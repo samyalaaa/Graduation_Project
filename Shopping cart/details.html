@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <button class="back-button" id="back-button">
+            <span class="back-icon">←</span> Back to Products
+        </button>
+        
+        <div class="product-details" id="product-details">
+            <!-- Product details will be added here dynamically -->
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            <div class="total-price" id="total-price">Total: LE 0.00</div>
+        </div>
+    </div>
+    
+    <script src="details.js"></script>
+</body>
+</html>

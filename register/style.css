@@ -1,0 +1,131 @@
+@import url("../CssFolders/basic/style.css");
+
+
+/* Regsiter image */
+body {
+    background-color: #FFFFFF;
+}
+.images{
+    position: relative;
+}
+.images .img1{
+    width: 82%;
+    position: absolute;
+    bottom: -600px;
+    left: -78px;
+    z-index: 1;
+}
+.images .img12{
+    width: 50%;
+    position: absolute;
+    bottom: -130px;
+    left: -50px;
+    z-index: 2;
+}
+.images .polygon{
+    width: 15%;
+    position: absolute;
+    top: 500px;
+    right: -640px;
+}
+.images .ellipse{
+    width: 40%;
+    position: absolute;
+    top: 543.5px;
+    right: -583px;
+    z-index: 2;
+}
+.images .star{
+    width: 40%;
+    position: absolute;
+    top: 512px;
+    right: -420px;
+    z-index: 1;
+}
+.images .small-circle{
+    width: 15%;
+    position: absolute;
+    top: 0px;
+    right: -640px;
+    z-index: 1;
+}
+.images .large-circle{
+    width: 8%;
+    position: absolute;
+    top: 120px;
+    right: -570px;
+    z-index: 1;
+}
+
+/* Tha Same Code of Log in Page With Simple Diffrences */
+.login-container{
+    border: none;
+    width: 80%;
+}
+.login-headerr{
+    margin: 5px auto 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-headerr h1{
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 37px;
+    line-height: 21px;
+    letter-spacing: 0%;
+    color: #3B696D;
+}
+.register-btn {
+    width: 50%;
+    background: #FFF;
+    color:  #3B696D;
+    padding: 10px 50px;
+    border: 2px solid #3B696D;
+    border-radius: 31px;
+    cursor: pointer;
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    margin: 25px 0 5px 100px;
+    transition: all 1s;
+}
+.register-btn:hover {
+    background: #3B696D;
+    color: #FFF;
+}
+.input-group {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 426px) {
+    .register-btn{
+        width: 80%;
+        margin: 20px 0 0 40px;
+    }
+}
+
+.register p{
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    letter-spacing: 0%;
+    color: #3B696D;
+    margin-top: 10px;
+}
+.register p a{
+    color: red;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.divider {
+    margin: 1rem -2rem;
+}
+.divider::before,
+.divider::after {
+    width: 46%;
+    height: 1px;
+}

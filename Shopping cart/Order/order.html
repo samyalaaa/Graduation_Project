@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeeStyle - Place Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Page Title -->
+            <div class="page-title">
+                <button class="back-btn" onclick="goBack()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h1>Place Order</h1>
+            </div>
+
+            <!-- Order Options -->
+            <div class="order-options">
+                <div class="option-item" onclick="toggleOption('lens')">
+                    <label class="option-label">Choose Lens</label>
+                    <div class="option-field" id="lens-field">
+                        <span class="option-text" id="lens-text">Select lens type</span>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
+
+                <div class="option-item" onclick="toggleOption('frame')">
+                    <label class="option-label">Choose Frame</label>
+                    <div class="option-field" id="frame-field">
+                        <span class="option-text" id="frame-text">Select frame style</span>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
+
+                <div class="option-item" onclick="toggleOption('image')">
+                    <label class="option-label">Upload Image</label>
+                    <div class="option-field" id="image-field">
+                        <span class="option-text" id="image-text">Upload your photo</span>
+                        <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                    </div>
+                    <button class="add-btn" onclick="document.getElementById('image-upload').click()">+</button>
+                </div>
+
+                <div class="option-item" onclick="toggleOption('offers')">
+                    <label class="option-label">Choose Offers</label>
+                    <div class="option-field" id="offers-field">
+                        <span class="option-text" id="offers-text">Select available offers</span>
+                    </div>
+                    <button class="add-btn">+</button>
+                </div>
+            </div>
+
+            <!-- Delivery Info -->
+            <div class="delivery-info">
+                <p>period : from 5-7 days</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="login-form">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button class="submit-btn" onclick="submitOrder()">Submit</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for options -->
+    <div class="modal" id="optionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Choose Option</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

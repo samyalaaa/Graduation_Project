@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="../CssFolders/bootstrab/bootstrap.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Check Our Products</h2>
+        <a href="./Order/order.html">Place Order</a>
+        <header>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </header>
+        
+        <div class="products" id="products">
+            <!-- Products will be added here dynamically -->
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="cart-container" id="cart-container">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            <div class="total-price" id="total-price">Total: LE 0.00</div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+@import url("../CssFolders/icons/icons.css");
+@import url("../CssFolders/bootstrab/bootstrap.min.css");
+@import url("../CssFolders/bootstrab/bootstrap.bundle.min.js");
+@import url("../CssFolders/webfonts/fonts.css");
+@import url("../CssFolders/basic/style.css");
+
+/* Login Container */
+body {
+    background-color: #FFFFFF;
+}
+.login-container {
+    padding: 0 2rem;
+    margin: 25px 0;
+    border: 3px solid #3B696D;
+    border-radius: 4px;
+    width: 90%;
+    height: 550px;
+    text-align: center;
+    position: relative;
+}
+.login-header {
+    width: 120px;
+    height: 120px;
+    background: #2B6367;
+    border-radius: 50%;
+    margin: 5px auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 5px solid #F8BD00;
+    border-right: 5px solid #F8BD00;
+}
+.login-header h1 {
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 37px;
+    line-height: 21px;
+    letter-spacing: 0%;
+    color: #FFF;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.input-group input {
+    width: 477px;
+    height: 46px;
+    padding: 0px 40px ;
+    border: none;
+    background: #3B696D;
+    border-radius: 35px;
+    color: #FFFFFF;
+}
+.input-group input::placeholder {
+    color: #FFFFFFAB;
+    font-family: "Pathway Gothic One";
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.forgot-password {
+    margin: -10px 0 30px 15rem;
+}
+.forgot-password p {
+    font-family: "Patua One";
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: 0%;
+    color: #3B696D;
+    margin-top: 10px;
+}
+.forgot-password p a{
+    color: red;
+    text-decoration: none;
+    font-weight: 400;
+}
+.login-btn {
+    width: 50%;
+    background: #3B696D;
+    color: #FFFFFF;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 31px;
+    cursor: pointer;
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 21px;
+    margin: 0 0 15px 100px;
+    transition: all 1s;
+}
+.login-btn:hover {
+    background: #FFF;
+    color: #3B696D;
+    border: 1px solid #3B696D;
+}
+.divider {
+    margin: 1.5rem -2rem;
+    position: relative;
+    text-align: center;
+    color: #3B696D;
+    font-family: "Patua One";
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 21px;
+    letter-spacing: 0%;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 47%;
+    height: 2px;
+    background: #3B696D;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.google-btn {
+    font-family: "Pathway Gothic One";
+    background: #B2E4E8;
+    color: #FFFFFF;
+    padding: 0px 30px;
+    border: 2px solid #3B696D;
+    border-radius: 35px;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 26px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 1s;
+}
+.google-btn:hover {
+    background: #3B696D;
+    border: 2px solid #3B696D;
+}
+.google-btn i{
+    margin-right: 15px;
+}
+
+/* Login Shapes */
+.images{
+    position: relative;
+}
+.images .img1{
+    width: 40%;
+    position: absolute;
+    bottom: -90px;
+    left: -78px;
+    z-index: 1;
+}
+.images .img1-img{
+    width: 40%;
+    position: absolute;
+    bottom: -80px;
+    left: -78px;
+    z-index: 2;
+}
+.images .img2{
+    width: 20%;
+    position: absolute;
+    bottom: -232px;
+    left: -85px;
+    z-index: 1;
+}
+.images .img3{
+    width: 60%;
+    position: absolute;
+    bottom: -510px;
+    left: -78px;
+    z-index: 1;
+}
+.images .img4{
+    width: 23%;
+    position: absolute;
+    bottom: -600px;
+    left: -80px;
+    z-index: 1;
+}
+.images .img5{
+    width: 65%;
+    position: absolute;
+    bottom: -600px;
+    left: -30px;
+    z-index: 1;
+}
+
+/* Media Query */
+@media screen and (max-width: 769px){
+    .login-container{
+        width: auto;
+        padding: 40px 30px;
+    }
+    .images{
+        display: none;
+    }
+    .input-group input {
+        width: 300px;
+        height: 36px;
+    }
+    .forgot-password a{
+        display: flex;
+        justify-content: center;
+    }
+    .login-btn{
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+}
+

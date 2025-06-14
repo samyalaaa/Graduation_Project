@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset Flow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+
+        .error {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-text {
+            color: #0d9488;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #4338ca;
+        }
+
+        button:disabled {
+            background-color: #a5a5a5;
+            cursor: not-allowed;
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: #4f46e5;
+            border: 1px solid #4f46e5;
+        }
+
+        .secondary-btn:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .success {
+            background-color: #e6f7ef;
+            color: #0d9488;
+            border: 1px solid #0d9488;
+        }
+
+        .failure {
+            background-color: #fee2e2;
+            color: #e53e3e;
+            border: 1px solid #e53e3e;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #4f46e5;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .password-requirements {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .password-requirements h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .requirement-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+        }
+
+        .requirement.valid .requirement-icon {
+            background-color: #10b981;
+        }
+
+        .requirement.invalid .requirement-icon {
+            background-color: #ef4444;
+        }
+
+        .requirement.valid {
+            color: #10b981;
+        }
+
+        .requirement.invalid {
+            color: #ef4444;
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: #10b981;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Forgot Password Page -->
+        <div class="page active" id="forgotPasswordPage">
+            <div class="logo">
+            </div>
+            <h2>Forgot Password</h2>
+            <p>Enter your email address.</p>
+            
+            <form id="forgotPasswordForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <button type="submit" id="submitBtn">
+                    <span class="loading" id="loadingSpinner"></span>
+                    <span id="buttonText">Reset Password</span>
+                </button>
+            </form>
+            
+            <div class="message success" id="successMessage">
+                <br><br>
+                <button type="button" onclick="simulateEmailClick()" class="secondary-btn">
+                    Simulate Email Click (Demo)
+                </button>
+            </div>
+            
+            <div class="message failure" id="errorMessage">
+                We couldn't find an account with that email address.
+            </div>
+            
+            <a class="back-link" href="../login/login.html">Back to Login</a>
+        </div>
+
+        <!-- Reset Password Page -->
+        <div class="page" id="resetPasswordPage">
+            <div class="logo">
+            </div>
+            <h2>Create New Password</h2>
+            <p>Please enter your new password below.</p>
+            
+            <form id="resetPasswordForm">
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password">
+                    <div class="error" id="passwordError">Passwords do not match</div>
+                </div>
+
+                <div class="password-requirements">
+                    <h4>Password Requirements:</h4>
+                    <div class="requirement invalid" id="lengthReq">
+                        <span class="requirement-icon">✗</span>
+                        At least 8 characters long
+                    </div>
+                    <div class="requirement invalid" id="uppercaseReq">
+                        <span class="requirement-icon">✗</span>
+                        Contains uppercase letter
+                    </div>
+                    <div class="requirement invalid" id="lowercaseReq">
+                        <span class="requirement-icon">✗</span>
+                        Contains lowercase letter
+                    </div>
+                    <div class="requirement invalid" id="numberReq">
+                        <span class="requirement-icon">✗</span>
+                        Contains number
+                    </div>
+                </div>
+                
+                <button type="submit" id="resetSubmitBtn">
+                    <span class="loading" id="resetLoadingSpinner"></span>
+                    <span id="resetButtonText">Update Password</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Login Page -->
+        <!-- <div class="page" id="loginPage">
+            <div class="logo">
+                <h1>Company Name</h1>
+            </div>
+            <div class="welcome-message" id="welcomeMessage" style="display: none;">
+                <h3>✓ Password Updated Successfully!</h3>
+                <p>You can now login with your new password.</p>
+            </div>
+            <h2>Login</h2>
+            <p>Welcome back! Please sign in to your account.</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="loginEmail" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password">
+                    <div class="error" id="loginError">Invalid email or password</div>
+                    <div class="success-text" id="loginSuccess">Login successful! Welcome back.</div>
+                </div>
+                
+                <button type="submit" id="loginSubmitBtn">
+                    <span class="loading" id="loginLoadingSpinner"></span>
+                    <span id="loginButtonText">Sign In</span>
+                </button>
+            </form>
+            
+            <a class="back-link" onclick="showForgotPasswordPage()">Forgot Password?</a>
+        </div> -->
+    </div>
+
+    <script>
+        // Global variables to store user data
+        let userEmail = '';
+        let userPassword = '';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForgotPassword();
+            initializeResetPassword();
+            initializeLogin();
+        });
+
+        // Page navigation functions
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function showForgotPasswordPage() {
+            showPage('forgotPasswordPage');
+        }
+
+        function showResetPasswordPage() {
+            showPage('resetPasswordPage');
+        }
+
+        function showLoginPage() {
+            showPage('loginPage');
+        }
+
+        function simulateEmailClick() {
+            showResetPasswordPage();
+        }
+
+        // Forgot Password functionality
+        function initializeForgotPassword() {
+            const form = document.getElementById('forgotPasswordForm');
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            emailInput.addEventListener('input', function() {
+                if (emailInput.value.trim() === '') {
+                    emailError.style.display = 'none';
+                } else if (!isValidEmail(emailInput.value)) {
+                    emailError.style.display = 'block';
+                } else {
+                    emailError.style.display = 'none';
+                }
+            });
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                const email = emailInput.value.trim();
+                
+                if (!email || !isValidEmail(email)) {
+                    emailError.style.display = 'block';
+                    return;
+                }
+                
+                userEmail = email; // Store email for later use
+                
+                submitBtn.disabled = true;
+                loadingSpinner.style.display = 'inline-block';
+                buttonText.textContent = 'Sending...';
+                
+                setTimeout(function() {
+                    loadingSpinner.style.display = 'none';
+                    buttonText.textContent = 'Reset Password';
+                    
+                    if (email.includes('notfound')) {
+                        errorMessage.style.display = 'block';
+                        submitBtn.disabled = false;
+                    } else {
+                        successMessage.style.display = 'block';
+                        form.style.display = 'none';
+                    }
+                }, 2000);
+            });
+        }
+
+        // Reset Password functionality
+        function initializeResetPassword() {
+            const form = document.getElementById('resetPasswordForm');
+            const newPasswordInput = document.getElementById('newPassword');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordError = document.getElementById('passwordError');
+            const submitBtn = document.getElementById('resetSubmitBtn');
+            const loadingSpinner = document.getElementById('resetLoadingSpinner');
+            const buttonText = document.getElementById('resetButtonText');
+            
+            // Password requirements elements
+            const lengthReq = document.getElementById('lengthReq');
+            const uppercaseReq = document.getElementById('uppercaseReq');
+            const lowercaseReq = document.getElementById('lowercaseReq');
+            const numberReq = document.getElementById('numberReq');
+            
+            function updateRequirement(element, isValid) {
+                if (isValid) {
+                    element.classList.remove('invalid');
+                    element.classList.add('valid');
+                    element.querySelector('.requirement-icon').textContent = '✓';
+                } else {
+                    element.classList.remove('valid');
+                    element.classList.add('invalid');
+                    element.querySelector('.requirement-icon').textContent = '✗';
+                }
+            }
+            
+            function validatePassword(password) {
+                const requirements = {
+                    length: password.length >= 8,
+                    uppercase: /[A-Z]/.test(password),
+                    lowercase: /[a-z]/.test(password),
+                    number: /\d/.test(password)
+                };
+                
+                updateRequirement(lengthReq, requirements.length);
+                updateRequirement(uppercaseReq, requirements.uppercase);
+                updateRequirement(lowercaseReq, requirements.lowercase);
+                updateRequirement(numberReq, requirements.number);
+                
+                return Object.values(requirements).every(req => req);
+            }
+            
+            newPasswordInput.addEventListener('input', function() {
+                validatePassword(newPasswordInput.value);
+                if (confirmPasswordInput.value) {
+                    checkPasswordMatch();
+                }
+            });
+            
+            confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+            
+            function checkPasswordMatch() {
+                if (newPasswordInput.value !== confirmPasswordInput.value) {
+                    passwordError.style.display = 'block';
+                    return false;
+                } else {
+                    passwordError.style.display = 'none';
+                    return true;
+                }
+            }
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newPassword = newPasswordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                
+                if (!validatePassword(newPassword)) {
+                    return;
+                }
+                
+                if (!checkPasswordMatch()) {
+                    return;
+                }
+                
+                userPassword = newPassword; // Store new password
+                
+                submitBtn.disabled = true;
+                loadingSpinner.style.display = 'inline-block';
+                buttonText.textContent = 'Updating...';
+                
+                setTimeout(function() {
+                    loadingSpinner.style.display = 'none';
+                    buttonText.textContent = 'Update Password';
+                    submitBtn.disabled = false;
+                    
+                    // Show success and redirect to login
+                    document.getElementById('loginEmail').value = userEmail;
+                    window.location.href = "../login/login.html";
+
+                }, 2000);
+            });
+        }
+
+        // Login functionality
+        function initializeLogin() {
+            const form = document.getElementById('loginForm');
+            const emailInput = document.getElementById('loginEmail');
+            const passwordInput = document.getElementById('loginPassword');
+            const loginError = document.getElementById('loginError');
+            const loginSuccess = document.getElementById('loginSuccess');
+            const submitBtn = document.getElementById('loginSubmitBtn');
+            const loadingSpinner = document.getElementById('loginLoadingSpinner');
+            const buttonText = document.getElementById('loginButtonText');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                loginError.style.display = 'none';
+                loginSuccess.style.display = 'none';
+                
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+                
+                submitBtn.disabled = true;
+                loadingSpinner.style.display = 'inline-block';
+                buttonText.textContent = 'Signing In...';
+                
+                setTimeout(function() {
+                    loadingSpinner.style.display = 'none';
+                    buttonText.textContent = 'Sign In';
+                    submitBtn.disabled = false;
+                    
+                    // Check if credentials match the stored ones
+                    if (email === userEmail && password === userPassword) {
+                        loginSuccess.style.display = 'block';
+                        form.style.display = 'none';
+                        
+                        // Simulate successful login redirect
+                        setTimeout(function() {
+                            alert('Login successful! You would now be redirected to your dashboard.');
+                        }, 1000);
+                    } else {
+                        loginError.style.display = 'block';
+                    }
+                }, 2000);
+            });
+        }
+
+
+    </script>
+</body>
+</html>

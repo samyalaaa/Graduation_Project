@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../shop/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../Shopping cart/cart.html">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Places/places.html">Places</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="../ContactUs/contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="../shop/shop.html">Home</a>
+            </li>                                                                                                           
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Contact Us</h1>
+            <p class="subtitle">Have questions or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+        </header>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Phone
+                    </h3>
+                    <p>(123) 456-7890</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email
+                    </h3>
+                    <p>info@example.com</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Address
+                    </h3>
+                    <p>123 Business Street</p>
+                    <p>Cairo,Egypt</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Business Hours
+                    </h3>
+                    <p>Monday - Friday: 9am - 5pm</p>
+                    <p>Saturday: 10am - 2pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <div class="success-message" id="success-message">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+                
+                <div class="form-container">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name"></label>
+                            <input type="text" id="name" name="name" placeholder="Name" required>
+                            <div class="error" id="name-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <input type="email" id="email" name="_replyto" placeholder="Email" required>
+                            <div class="error" id="email-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject"></label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <div class="error" id="subject-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"></label>
+                            <textarea id="message" name="message" placeholder="Message" required></textarea>
+                            <div class="error" id="message-error"></div>
+                        </div>
+
+                        <button type="submit" id="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,3 +1,3 @@
 function Shop() {
-    window.location.href = "../Shopping cart/cart.html"; 
+    window.location.href = "../prods/cart.html"; 
 }

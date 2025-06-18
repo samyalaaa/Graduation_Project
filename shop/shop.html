@@ -13,10 +13,10 @@
     <nav class="navbar">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="../products/page1.html">Category</a>
+                <a class="nav-link" href="../Category/page1.html">Category</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../Shopping cart/cart.html">Products</a>
+                <a class="nav-link" href="../prods/cart.html">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../Places/places.html">Places</a>
@@ -29,13 +29,6 @@
             </li>                                                                                                           
         </ul>
     </nav>
-
-    <!-- Search bar -->
-    <!-- <div class="search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search" onkeyup="search(this.value)">
-        
-    </div> -->
     </section>
     
     <!-- Home section -->
@@ -57,7 +50,7 @@
                     <div class="img">
                         <img src="../images/img3.png" alt="">
                         <p>Get the hottest styles<br>at 70% off!</p>
-                        <a href="../Shopping cart/cart.html">
+                        <a href="../prods/cart.html">
                             <button>Shop Now</button>
                         </a>
                     </div>
@@ -237,6 +230,27 @@
         </div>
     </div> -->
 
+     <div class="container">     
+        <div class="button-group">
+            <div class="top-buttons">
+                <button class="glasses-btn" id="sunglasses-btn" data-type="sunglasses" onclick="sunglasses()">
+                    SunGlasses
+                </button>
+                <button class="glasses-btn" id="eyeglasses-btn" data-type="eyeglasses" onclick="eyeglasses()">
+                    EyeGlasses
+                </button>
+                <button class="glasses-btn" id="exploreglasses-btn" data-type="exploreglasses" onclick="exploreGlasses()">
+                    Explore Categories
+                </button>
+            </div>
+            <div class="bottom-button">
+                <button class="glasses-btn" id="prescription-btn" data-type="prescription" onclick="prescriptionSunglasses()">
+                    prescription sunglasses
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <script src="main.js"></script>
 </body>
 </html>

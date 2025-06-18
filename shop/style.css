@@ -437,3 +437,129 @@ a button:hover{
     line-height: 36px;
     margin: 0 0 30px 30px;
 }
+
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.glasses-btn {
+    background-color: white;
+    border: 2px solid #d1d5db;
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.glasses-btn:hover {
+    border-color: #000;
+    color: #374151;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.15);
+}
+
+.glasses-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+}
+
+.glasses-btn.selected {
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    border-color: #00cc6a;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
+}
+
+.glasses-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.glasses-btn:hover::before {
+    left: 100%;
+}
+
+.selection-display {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+    text-align: center;
+}
+
+#selection-text {
+    font-size: 18px;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .glasses-btn {
+        min-width: 250px;
+        padding: 18px 30px;
+        font-size: 18px;
+    }
+    
+    .green-curve-1,
+    .green-curve-2 {
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .glasses-btn {
+        min-width: 200px;
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    
+    .selection-display {
+        min-width: 250px;
+        margin: 30px 20px 0;
+    }
+}
+
+/* Animation for button press effect */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.glasses-btn:active {
+    animation: buttonPress 0.2s ease;
+}

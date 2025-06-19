@@ -4,7 +4,7 @@ const products = [
     title: "Marco Philip",
     price: 1800.0,
     oldprice: 0.0,
-    image: "../images/assets/Rectangle 88.png",
+    image: "./../images/assets/Rectangle 88.png",
 },
 {
     id: 2,

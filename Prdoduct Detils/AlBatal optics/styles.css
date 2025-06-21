@@ -1,0 +1,142 @@
+@import url(../../CssFolders/bootstrab/bootstrap.min.css);
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Patua One";
+}
+
+.container {
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: auto;
+
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1,h1 {
+    color: #1E7076; /* A shade of blue, similar to the image */
+    margin: 10px 0;
+    font-size: 1.8em;
+    font-weight: 600;
+    font-size: 40px;
+}
+span{
+       color: #1E7076; /* A shade of blue, similar to the image */
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 500;
+    font-size: 33px;
+}
+.rating {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 25px;
+}
+
+.rating .stars {
+    color: #F8BD00; /* Gold color for stars */
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.gallery {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    width: 100%;
+}
+
+.main-image-container {
+    flex: 2; /* Takes more space */
+    min-width: 250px; /* Minimum width for the main image */
+    max-width: 450px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.thumbnails {
+    flex: 1; /* Takes less space */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px;
+    min-width: 200px; /* Minimum width for thumbnails */
+    max-width: 300px;
+}
+.thumbnails img {
+    width: 100%;
+    height: 100px; /* Fixed height for thumbnails */
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnails img:hover {
+    border-color: #007bff;
+}
+
+.thumbnails img.active {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+.details {
+    padding: 15px;
+}
+
+.details p {
+    font-family: Patua One;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.details strong {
+    color: #1E7076;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-image-container, .thumbnails {
+        width: 100%;
+        max-width: none;
+    }
+
+    .thumbnails {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .thumbnails {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on very small screens */
+    }
+}

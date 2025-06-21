@@ -76,3 +76,11 @@ function addInteractiveEffects() {
 
 // Initialize interactive effects
 addInteractiveEffects()
+
+
+function lense(){
+    location.href = "./Lense/lense.html";
+}
+function chamber(){
+    location.href = "./Chmber/chambr.html";
+}

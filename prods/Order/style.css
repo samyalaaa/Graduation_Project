@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 60%;
     margin: 0 auto;
     background-color: white;
     min-height: 100vh;
@@ -67,9 +67,9 @@ body {
     background-color: #a8d5d8;
     border-radius: 25px;
     padding: 15px 20px;
-    margin-right: 60px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 70%;
 }
 
 .option-field:hover {
@@ -120,6 +120,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 70%;
 }
 
 .input-group input {

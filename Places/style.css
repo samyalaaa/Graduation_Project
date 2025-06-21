@@ -7,6 +7,7 @@
     padding: 0 30px 30px 30px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 h2{
     font-family: "Patua One";

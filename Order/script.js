@@ -39,7 +39,7 @@ const optionData = {
 function goBack() {
     if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
         // In a real app, this would navigate to the previous page
-        window.location.href = '../cart.html'; 
+        window.location.href = '../prods/cart.html'; 
     }
 }
 

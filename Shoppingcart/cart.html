@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunglasses Store - Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <span class="header-text">Discover a world of elegance, luxury, and high quality</span>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-wrapper">
+        <input type="text" id="search-input" class="search-input" placeholder="search for products">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="content-wrapper">
+      <!-- Products -->
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Product</h2>
+          <h2>Total</h2>
+        </div>
+        <div id="product-list"></div>
+      </section>
+
+      <!-- Summary -->
+      <aside class="cart-summary">
+        <div class="cart-header"><h3>Total shopping cart</h3></div>
+        <div class="cart-details">
+          <div class="cart-row">
+            <span>The Total</span>
+            <span id="subtotal">0.00 EGP</span>
+          </div>
+
+          <!-- Shipping -->
+          <div class="delivery-section">
+            <h4>Delivery</h4>
+            <div class="shipping-options-list">
+              <div class="shipping-option">
+                <input type="radio" name="shipping" value="66" checked>
+                <span>Aramex Express Shipping (66.00 EGP)</span>
+              </div>
+              <div class="shipping-option">
+                <input type="radio" name="shipping" value="0">
+                <span>Aramex Free Shipping</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Final -->
+          <div class="final-total cart-row total-row">
+            <span><strong>Total</strong></span>
+            <span id="final-total"><strong>66.00 EGP</strong></span>
+          </div>
+
+        <button class="checkout-btn" onclick="check()">Follow up to complete the order</button>
+        <button id="clear-cart-btn" class="clear-cart-btn">Clear Cart</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+ 
+  <script src="script.js"></script>
+</body>
+</html>

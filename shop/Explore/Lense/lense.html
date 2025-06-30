@@ -1,77 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Lenses</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Lenses</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <button class="back-btn" onclick="goBack()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <h1 class="title">Choose Lenses</h1>
-        </header>
+  <div class="container">
+    <header class="header">
+      <button class="back-btn" onclick="goBack()">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h1 class="title">Choose Lenses</h1>
+        <button class="cart-btn" onclick="window.location.href='../../../Shoppingcart/cart.html'">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+        <path d="M6 6H21L20 12H7L6 6ZM7 18C7.552 18 8 17.552 8 17C8 16.448 7.552 16 7 16C6.448 16 6 16.448 6 17C6 17.552 6.448 18 7 18ZM18 18C18.552 18 19 17.552 19 17C19 16.448 18.552 16 18 16C17.448 16 17 16.448 17 17C17 17.552 17.448 18 18 18Z" 
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    </header>
 
-        <main class="lens-grid">
-            <div class="lens-card" data-lens="magic-blue-cut">
-                <div class="lens-image">
-                    <img src="../../../images/Frame 133.png" />
-                </div>
-                <div class="lens-info">
-                    <h3 class="lens-title">Magic Blue Cut lenses</h3>
-                    <button class="add-btn" onclick="selectLens('magic-blue-cut')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div class="lens-card" data-lens="white-plastic">
-                <div class="lens-image">
-                    <div class="lens-image">
-                    <img src="../../../images/Rectangle 89.png" />
-                </div>
-                </div>
-                <div class="lens-info">
-                    <h3 class="lens-title">white plastic lenses</h3>
-                    <button class="add-btn" onclick="selectLens('white-plastic')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div class="lens-card" data-lens="multi-coated">
-                <div class="lens-image">
-                    <div class="lens-image">
-                    <img src="../../../images/Rectangle 90.png" />
-                </div>
-                </div>
-                <div class="lens-info">
-                    <h3 class="lens-title">Multi-coated lens with reflective coating</h3>
-                    <button class="add-btn" onclick="selectLens('multi-coated')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <div class="selection-summary" id="selectionSummary" style="display: none;">
-            <h3>Selected Lenses:</h3>
-            <ul id="selectedLenses"></ul>
-            <button class="continue-btn" onclick="continueToPurchase()">Continue</button>
+    <main class="lens-grid">
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-    </div>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="lens-card" data-lens="white-plastic">
+        <div class="lens-image"><img src="../../../images/Rectangle 89.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">White Plastic Lenses</h3>
+          <button class="add-btn" onclick="selectLens('white-plastic')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="lens-card" data-lens="multi-coated">
+        <div class="lens-image"><img src="../../../images/Rectangle 90.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Multi-coated Lens</h3>
+          <button class="add-btn" onclick="selectLens('multi-coated')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lens-card" data-lens="magic-blue-cut">
+        <div class="lens-image"><img src="../../../images/Frame 133.png" /></div>
+        <div class="lens-info">
+          <h3 class="lens-title">Magic Blue Cut lenses</h3>
+          <button class="add-btn" onclick="selectLens('magic-blue-cut')">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div class="selection-summary" id="selectionSummary" style="display: none;">
+      <h3>Selected Lenses:</h3>
+      <ul id="selectedLenses"></ul>
+      <button class="continue-btn" onclick="continueToPurchase()">Continue</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

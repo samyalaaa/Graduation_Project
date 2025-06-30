@@ -3,6 +3,22 @@
 @import url(../icons/icons.css);
 @import url(../basic/style.css);
 
+.top-right-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.top-right-icon a {
+    color: #e74c3c;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.top-right-icon a:hover {
+    color: #c0392b;
+}
 
 .header h3 {
 font-family: "Pathway Gothic One";
@@ -10,18 +26,7 @@ font-weight: 400;
 font-size: 54px;
 line-height: 15px;
 color: #1e7076;
-margin: 50px 0 0 30px;
-}
-.header .navbar-nav {
-margin: 20px auto 0 auto;
-gap: 40px;
-}
-.navbar-nav a {
-font-family: "Petrona";
-font-weight: 400;
-font-size: 30px;
-text-align: center;
-color: #1e7076;
+margin: 40px 0 80px 40px;
 }
 .product-image {
 position: relative;

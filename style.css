@@ -52,7 +52,7 @@
 
 /* home */
 .home{
-    height: 460vh;
+    height: 320vh;
     background-color: #3B696D;
     position: relative;
     z-index: 1;
@@ -66,6 +66,7 @@
     gap: 48px;
     transform: translate(-280%, -90%);
     position: absolute;
+    cursor: pointer;
 }
 /* Shapes */
 .small-circle {
@@ -113,6 +114,13 @@
     color: #2B4E51;
     position: absolute;
     z-index: 3;
-    top: 300px;
-    left: 90px;
+    top: 170px;
+    left: 50px;
+}
+.home-page .cards .card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
 }

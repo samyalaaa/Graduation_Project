@@ -1,75 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title> <link rel="stylesheet" href="cart.css"> 
-    <link rel="stylesheet" href="details.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="stylesheet" href="details.css" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../ContactUs/contact.html">Contact Us</a></li>
-                <li><a href="./cart.html">Order Glasses</a></li>
-            </ul>
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../ContactUs/contact.html">Contact Us</a></li>
+        <li><a href="./cart.html">Order Glasses</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="main-content">
+      <div class="product-images">
+        <div class="main-image">
+          <img id="mainImage" src="" alt="Product Image" />
         </div>
-    </nav>
+        <div class="thumbnail-images" id="thumbnails"></div>
+      </div>
 
-    <main class="container">
-        <div class="main-content">
-            <div class="product-images">
-                <div class="main-image">
-                    <img id="mainImage" src="" alt="Product Image">
-                </div>
-                <div class="thumbnail-images">
-                    <div class="thumbnail active" onclick="changeImage('../images/assets/Rectangle 88 (2).png', this)">
-                        <img src="../images/assets/Rectangle 88 (2).png" alt="Thumbnail 1">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('../images/assets/Rectangle 89 (2).png', this)">
-                        <img src="../images/assets/Rectangle 89 (2).png" alt="Thumbnail 2">
-                    </div>
-                    <div class="thumbnail" onclick="changeImage('../images/assets/Rectangle 90 (2).png', this)">
-                        <img src="../images/assets/Rectangle 90 (2).png" alt="Thumbnail 3">
-                    </div>
-                </div>
-            </div>
+      <div class="product-details">
+        <h1 class="product-title"></h1>
 
-            <div class="product-details">
-                <h1 class="product-title"></h1>
-
-                <div class="pricing">
-                    <span class="original-price"></span>
-                    <span class="sale-price"></span>
-                    <span class="offer-badge">Offer</span>
-                </div>
-
-                <p class="shipping-info">
-                    <a href="#shipping">Shipping</a> Calculated at checkout.
-                </p>
-
-                <div class="color-section">
-                    <h3 class="section-title">Choose Color</h3>
-                    <button class="color-option">Black Gold Armor Green</button>
-                </div>
-
-                <div class="quantity-section">
-                    <h3 class="section-title">Quantity</h3>
-                    <div class="quantity-controls">
-                        <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
-                        <span class="quantity-display" id="quantity">1</span>
-                        <button class="quantity-btn" onclick="increaseQuantity()">+</button>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-add-cart" onclick="addToCart()">Add To Cart</button>
-                    <button class="btn btn-buy-now" onclick="buyNow()">Buy It Now</button>
-                </div>
-            </div>
+        <div class="pricing">
+          <span class="original-price"></span>
+          <span class="sale-price"></span>
+          <span class="offer-badge">Offer</span>
         </div>
-    </main>
 
-    <script src="details.js"></script> </body>
+        <p class="shipping-info">
+          <a href="#shipping">Shipping</a> Calculated at checkout.
+        </p>
+
+        <div class="color-section">
+          <h3 class="section-title">Choose Color</h3>
+          <button class="color-option">Black Gold Armor Green</button>
+        </div>
+
+        <div class="quantity-section">
+          <h3 class="section-title">Quantity</h3>
+          <div class="quantity-controls">
+            <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+            <span class="quantity-display" id="quantity">1</span>
+            <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-add-cart" onclick="addToCart()">Add To Cart</button>
+          <button class="btn btn-buy-now" onclick="buyNow()">Buy It Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="details.js"></script>
+</body>
 </html>

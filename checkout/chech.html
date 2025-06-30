@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Sunglasses Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      padding: 20px;
+    }
+
+    .checkout-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .checkout-container h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .checkout-container label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .checkout-container input, .checkout-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .checkout-container .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .checkout-container button {
+      flex: 1;
+      padding: 12px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .confirm-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .home-btn {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <h1>Confirm Your Order</h1>
+    
+    <form id="checkout-form">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <div class="btn-group">
+        <button type="submit" class="confirm-btn">Confirm Order</button>
+        <button type="button" class="home-btn" onclick="window.location.href='../Shoppingcart/cart.html'">Back to cart</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("fullName").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !address || !phone) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      // You can send order info to an API here if needed
+
+      alert("✅ Order confirmed successfully!\nWe will contact you soon.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,41 +1,46 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // الحصول على معلمة `id` من URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = parseInt(urlParams.get('id'));
-    const quantity = parseInt(urlParams.get('quantity')) || 1; // الكمية الافتراضية: 1
+document.getElementById("buyNowForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    // جلب المنتج من localStorage أو من مصفوفة `products`
-    const products = JSON.parse(localStorage.getItem('productsList'));
-    const product = products.find(item => item.id === productId);
+  const id = document.getElementById("id").value;
+  const name = document.getElementById("name").value;
+  const oldPrice = document.getElementById("oldPrice").value;
+  const newPrice = document.getElementById("newPrice").value;
+  const description = document.getElementById("description").value;
+  const typeId = document.getElementById("typeId").value;
+  const picture = document.getElementById("picture").files[0];
 
-    if (product) {
-        // عرض تفاصيل المنتج في الصفحة
-        const buyNowContainer = document.getElementById('buy-now-container');
-        buyNowContainer.innerHTML = `
-            <div class="product-details">
-                <img src="${product.image}" alt="${product.title}" width="200">
-                <h2>${product.title}</h2>
-                <p>Price: LE ${product.price.toFixed(2)}</p>
-                <p>Quantity: ${quantity}</p>
-                <p>Total: LE ${(product.price * quantity).toFixed(2)}</p>
-            </div>
-            <form id="checkout-form">
-                <h3>Shipping Information</h3>
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="text" placeholder="Address" required>
-                <button type="submit" class="btn-buy-now">Complete Purchase</button>
-            </form>
-        `;
+  if (!picture) return alert("Please upload a product image.");
 
-        // معالجة إرسال النموذج
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your purchase! Your order has been placed.');
-            localStorage.removeItem('cart'); // تفريغ السلة بعد الشراء (اختياري)
-            window.location.href = 'cart.html'; // إعادة التوجيه إلى الصفحة الرئيسية
-        });
+  const formData = new FormData();
+  formData.append("Picture", picture);
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You must be logged in to perform this action.");
+    return;
+  }
+
+  const url = `https://visionhub.runasp.net/api/Product?Id=${id}&Name=${encodeURIComponent(name)}&OldPrice=${oldPrice}&NewPrice=${newPrice}&Description=${encodeURIComponent(description)}&TypeId=${typeId}`;
+
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "text/plain",
+      },
+      body: formData,
+    });
+
+    const result = await response.text();
+
+    if (response.ok) {
+      alert("Product submitted successfully!");
     } else {
-        document.getElementById('buy-now-container').innerHTML = '<p>Product not found.</p>';
+      alert(`Error: ${result}`);
     }
+  } catch (err) {
+    alert("An error occurred while submitting the product.");
+    console.error(err);
+  }
 });
